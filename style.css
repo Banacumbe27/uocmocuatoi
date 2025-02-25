@@ -1,28 +1,16 @@
 body{
     margin:none;
     background:black;
-    overflow:hidden;
+    overflow-x:hidden;
 }
 section{
     width:100vw;
     height:100vh;
+    justify-items: center;
 }
 body>*{
     margin:none;
     user-select: none;
-}
-.content-slider{
-    display:flex;
-    flex-direction: row;
-    height:100vh;
-    width:100vw;
-}
-.intro-slider{
-    display:flex;
-    flex-direction: column;
-    height:100vh;
-    width:100vw;
-    transition:1s;
 }
 .intro{
     width:100vw;
@@ -43,7 +31,7 @@ body>*{
     align-self: center;
 }
 .intro-star{
-    position:absolute;
+    position:fixed;
     pointer-events: none;
     background:white;
     width:1vmax;
@@ -67,17 +55,93 @@ body>*{
     left:50vw;
     transform:translate(-50%,150%);
 }
-
+.container{
+    width:100vw;
+    height:100vh;
+    justify-items: center;
+}
 @keyframes star-behave{
     0%{opacity:0;scale:0;transform:rotate(0deg);}
     50%{opacity:0.5;scale:1;transform:rotate(180deg);}
     100%{opacity:0;scale:0;transform:rotate(0deg);}
 }
-.first-text{
-    font-size:4vmax;
-    color:white;   
+.dreams{
+    display:flex;
+    flex-direction: column;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:100;
+    background:white;  
+    transition:1s; 
+    opacity:0;
+    display:none;
 }
-.first-text::after{
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+.setUnblur{
+    font-size:5vmax;
+    margin-top:50vh;
+    filter:blur(100px);
+    -webkit-filter:blur(100px);
+}
+.unblur{
+    animation:2s unblur forwards;
+}
+.floatin{
+    animation:1s floatin forwards;
+}
+@keyframes floatin{
+    from{
+        transform:translateY(50vh);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+@keyframes unblur {
+    from{
+        filter:blur(100px);
+        -webkit-filter:blur(100px);
+    }
+    to{
+        filter:blur(0px);
+        -webkit-filter:blur(0px);
+    }
+}
+.setFloatin{
+    opacity:0;
+}
+.setPopup{
+
+}
+@keyframes popup{
+    from{
+        scale:0;
+    }
+    to{
+        scale:1;
+    }
+}
+.earth{
+    background:url(earth.jpg);
+    background-position:0 50%;
+    background-size:cover;
+    border-radius:100%;
+    position:absolute;
+    top:150vh;
+    left:-10vw;
+    width:40vmax;
+    height:40vmax;
+    box-shadow:20px 20px 20px blue;
+    animation:10s linear self-orbit infinite;
+
+}
+@keyframes self-orbit{
+    0%{
+    background-position:0 50%;
+    }
+    100%{
+        background-position:150% 50%;
+    }
 }

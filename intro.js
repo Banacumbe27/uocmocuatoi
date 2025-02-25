@@ -1,5 +1,5 @@
 const text='NHỮNG ƯỚC MƠ CỦA TÔI';
-const number_of_layers=50;
+const number_of_layers=20;
 const parallax_val=20;
 const parallax_increment=0.5;
 const introSection=document.querySelector('.intro');
@@ -39,8 +39,6 @@ function generateStars(starAmount){
     star.classList.add('intro-star');
     star.style.top=starPos.y+'px';
     star.style.left=starPos.x+'px';
-    document.documentElem
-    
     
     star.style.setProperty('--startimeout',star_timeout+'ms');
     introSection.appendChild(star);
@@ -49,8 +47,60 @@ function generateStars(starAmount){
     
     }
 }
-const introSlider=document.querySelector('.intro-slider');
+const dreams=document.querySelector('.dreams');
 function showContent(){
-    introSlider.style.transform='translateY(-100%)';
+    dreams.style.display='inline';
+   setTimeout( ()=>{dreams.style.opacity='1';},20)
     showing_content=true;
 }
+
+let unblur=new IntersectionObserver(
+(entries,observer)=>{
+    entries.forEach(entry=>
+{
+    if(entry.isIntersecting){
+        entry.target.classList.add('unblur');
+    }
+}
+    );
+}
+);
+let floatin= new IntersectionObserver(
+(entries,observer)=>{
+    entries.forEach(
+        entry=>{
+            if(entry.isIntersecting){
+                entry.target.style.animation='2s floatin forwards';
+                console.log('earthaaa');
+            }
+        }
+        )
+}
+
+);
+document.querySelectorAll('.setFloatin').forEach(ele=>{floatin.observe(ele);});
+document.querySelectorAll('.setUnblur').forEach(ele=>{unblur.observe(ele);});
+
+const transitionMarks={proportion:[0.3,0.6],content:['white','black']};
+window.onscroll=e=>{
+scrollProportion=Math.floor(10*window.scrollY/window.screen.height)/10;
+for(let i=0;i<transitionMarks.proportion.length;i++){
+    if(scrollProportion==transitionMarks.proportion[i]){
+        backgroundChange(transitionMarks.content[i]);
+    }
+}
+};
+
+
+function backgroundChange(content){
+    dreams.style.background=content;   
+}
+
+function generateShootingStars(amount=10){
+    for(let i=0;i<amount;i++){
+        document.querySelector('.space').appendChild(document.createElement('span'));
+    }
+}
+generateShootingStars();
+
+
