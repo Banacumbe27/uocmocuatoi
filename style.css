@@ -73,13 +73,34 @@ body>*{
     top:0;
     z-index:100;
     background:white;  
+    background-size:cover;
+    background-repeat:no-repeat;
     transition:1s; 
     opacity:0;
     display:none;
+    overflow:hidden;
+   
+}
+.dreamsBG{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    background:url(sky.jpg);
+    background-size:contain;
+    transition:1s;
+    opacity:0;
+    pointer-events: none;
 }
 .setUnblur{
     font-size:5vmax;
+    width:100vw;
+    text-align: center;
     margin-top:50vh;
+    position:absolute;
+    left:50vw;
+    transform:translate(-50%,0);
     filter:blur(100px);
     -webkit-filter:blur(100px);
 }
@@ -124,24 +145,110 @@ body>*{
     }
 }
 .earth{
-    background:url(earth.jpg);
-    background-position:0 50%;
-    background-size:cover;
+    background:url(earth.webp);
+    background-size:contain;
     border-radius:100%;
     position:absolute;
-    top:150vh;
+    top:140vh;
     left:-10vw;
     width:40vmax;
     height:40vmax;
-    box-shadow:20px 20px 20px blue;
-    animation:10s linear self-orbit infinite;
 
 }
-@keyframes self-orbit{
-    0%{
-    background-position:0 50%;
-    }
-    100%{
-        background-position:150% 50%;
-    }
+.space-text{
+    margin-top:65vh;
+    margin-left:30vw;
+    font-size:4.5vmax;
+    color:white;
+    text-align: center;
+}
+.astronaut{
+    background:url(astronaut.webp);
+    background-size:contain;
+    background-repeat: no-repeat;
+    position:absolute;
+    top:180vh;
+    left:30vw;
+    width:20vmax;
+    height:50vmax;
+}
+.ISS{
+    background:url(ISS.webp);
+    background-size:cover;
+    position:absolute;
+    top:170vh;
+    left:10vw;
+    width:25vmax;
+    height:10vmax;
+}
+.art-text{
+    margin-top:25vh;
+    font-size:4.5vmax;
+    width:100vw;
+    color:black;
+    font-family: "Pacifico", serif;
+    font-weight:400;
+    text-align: center;
+    border-radius: 20%;
+    backdrop-filter: blur(1vmax);
+    -webkit-backdrop-filter: blur(1vmax);
+
+}
+.art-panel{
+    display:flex;
+    flex-direction:row;
+    position:absolute;
+    left:0;
+    flex-wrap: wrap;
+}
+.art-canvas{
+    background:white;
+    z-index:100;
+    cursor:url(brush_icon.png),auto;
+}
+.art-controls{
+    background:black;
+    width:40vw;
+    height:80vh;
+    display:flex;
+    flex-wrap: wrap;
+    gap:0;
+}
+.art-controls >*{
+    width:40%;
+    height:10vh;
+    margin:0;
+    font-size:3vmax;
+    text-align:left;
+
+}
+.art-controls label{
+    background:rgba(255,255,255,1);
+}
+.art-controls button{
+    margin-top: -20vh;
+    margin-left:60%;
+    font-size:4vmax;
+    width:fit-content;
+    height:fit-content;
+    color:black;
+}
+.chef{
+    width:100vw;
+    height:100vh;
+}
+.chef-text{
+    color:white;
+    font-size:4vmax;
+    margin-top:40vh;
+}
+.chef img{
+    width:40vw;
+    height:30vw;
+}
+.dev-text{
+    font-size:4vmax;
+    margin-top:30vh;
+    text-align: center;
+    color:white;
 }

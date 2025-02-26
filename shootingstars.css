@@ -10,9 +10,7 @@ span{
     left:50%;
     width: 4px;
     height: 4px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 0 0 4px rgba(255,255,255,0.1),0 0 0 8px rgba(255,255,255,0.1),0 0 20px rgba(255,255,255,0.1);
+    background:none;
     animation: shootingStars 3s linear infinite;
 }
 span::before{
@@ -42,70 +40,70 @@ span::before{
     }
 }
 span:nth-child(1){
-    top: 0;
+    top: 100vh;
     right: 0;
     left: initial;
     animation-delay: 0s;
     animation-duration: 1s;
 }
 span:nth-child(2){
-    top: 0;
+    top: 100vh;
     right: 80px;
     left: initial;
     animation-delay: 0.2s;
     animation-duration: 3s;
 }
 span:nth-child(3){
-    top: 80;
+    top: 80vh;
     right: 0px;
     left: initial;
     animation-delay: 0.4s;
     animation-duration: 2s;
 }
 span:nth-child(4){
-    top: 0;
+    top: 100vh;
     right: 180px;
     left: initial;
     animation-delay: 0.6s;
     animation-duration: 1.5s;
 }
 span:nth-child(5){
-    top: 0;
+    top: 100vh;
     right: 400px;
     left: initial;
     animation-delay: 0.8s;
     animation-duration: 2.5s;
 }
 span:nth-child(6){
-    top: 0;
+    top: 100vh;
     right: 600px;
     left: initial;
     animation-delay: 1s;
     animation-duration: 3s;
 }
 span:nth-child(7){
-    top: 300px;
+    top: 120vh;
     right: 0px;
     left: initial;
     animation-delay: 1.2s;
     animation-duration: 1.75s;
 }
 span:nth-child(8){
-    top: 0px;
+    top: 100vh;
     right: 700px;
     left: initial;
     animation-delay: 1.4s;
     animation-duration: 1.25s;
 }
 span:nth-child(9){
-    top: 0px;
+    top: 100vh;
     right: 1000px;
     left: initial;
     animation-delay: 0.75s;
     animation-duration: 2.25s;
 }
 span:nth-child(9){
-    top: 0px;
+    top: 100vh;
     right: 450px;
     left: initial;
     animation-delay: 2.75s;

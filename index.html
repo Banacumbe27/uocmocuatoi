@@ -5,20 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="shootingstars.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <title>Ước mơ của tôi</title>
 </head>
 <body>
     <div class="container intro">
-        <a class="wordbutton go" href="javascript:showContent()">Let's go -></a>
+        <a class="wordbutton go" href="javascript:showContent()">➤Let's go</a>
     </div>
     <div class="dreams">
-        <section class="loidetu">
-            <div class="setUnblur"> Từ bé, tôi đã từng có nhiều ước mơ</div>
+        <div class="dreamsBG"></div>
+        <section class="loidetu" >
+            <div class="setUnblur sectionLandmark" id="1"> ⬇Tôi có rất nhiều ước mơ⬇
+            </div>
         </section>
-        <section class="space">
-            <div class="earth"></div>
+        <section class="space" >
+            <div class="earth setFloatin" ></div>
+            <div class="ISS setFloatin"></div>
+            <div class="astronaut setFloatin"></div>
+            <div class="setFloatin space-text sectionLandmark" id="2">Hồi bé, tôi ước mơ làm phi hành gia
+                <br>khám phá vũ trụ bao la
+            </div>
         </section>
+        <section class="art">
+            <div class="setFloatin art-text sectionLandmark" id="3">Năm 10 tuổi, tôi ước mơ làm họa sĩ
+                <br>vẽ nên những bức tranh đẹp
+            </div>
+            <div class="art-panel">
+                <canvas class="art-canvas" ></canvas>
+                <div class="art-controls">
+                    <input type="range" min="1" max="100" value="1" class="colorSlider" oninput="setStrokeWidth(event)" id="w">
+                    <label id="w-label">nét:1px</label>
+                    <input type="range" min="0" max="255" value="0" class="colorSlider" oninput="setRGB(event)" id="r">
+                    <label id="r-label">r:0</label>
+                    <input type="range" min="0" max="255" value="0" class="colorSlider" oninput="setRGB(event)" id="g">
+                    <label id="g-label">g:0</label>
+                    <input type="range" min="0" max="255" value="0" class="colorSlider" oninput="setRGB(event)" id="b">
+                    <label id="b-label">b:0</label>
+                    <button onclick="clearCanvas()">Xóa🗑️</button>
+                </div>
+                </div>
+                
+        </section>
+        <section class="chef">
+            <div class="setFloatin chef-text sectionLandmark" id="4">Tôi còn ước mơ làm đầu bếp
+                <br>chế biến những món ăn ngon
+            </div>
+            <img src="beef.jpg">
+            <div class="chef-text" style="margin:0;font-size:2vmax;">Nguồn:<a href="https://www.meta.ai/" target="_blank">MetaAI </a>imagine a thin sliced beef with rice michelin dish</div>
+        </section>
+       <section class="dev">
+        <div class="setFloatin dev-text sectionLandmark" id="5">Hiện giờ, tôi đang có ước mơ làm một lập trình viên
+            <br>tạo ra những công cụ vi tính hỗ trợ mọi người
+        </div>
+       </section>
     </div>
 </body>
 <script src="intro.js"></script>
+<script src="canvas.js"></script>
 </html>

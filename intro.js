@@ -1,6 +1,6 @@
 const text='NHỮNG ƯỚC MƠ CỦA TÔI';
 const number_of_layers=20;
-const parallax_val=20;
+const parallax_val=20*window.screen.width/1080;
 const parallax_increment=0.5;
 const introSection=document.querySelector('.intro');
 
@@ -19,9 +19,10 @@ window.onmousemove=e=>{
     if(!showing_content){
     layers.forEach(layer=>{let movement_scale=JSON.parse(layer.id);
         let rect=layer.getBoundingClientRect();
-        layer.style.transform=`translateX(${((e.clientX-0.5*window.screen.width)*movement_scale/100)-(0.5*rect.width)}px) translateY(${((e.clientY-rect.top)*movement_scale/100)-(0.5*rect.height)}px)`;
+        layer.style.transform=`translateX(${((e.clientX-0.5*window.innerWidth)*movement_scale/100)-(0.5*rect.width)}px) translateY(${((e.clientY-rect.top)*movement_scale/100)-(0.5*rect.height)}px)`;
     });
 }
+
 };
 const starAmount=10;
 const star_timeout=500;
@@ -50,6 +51,7 @@ function generateStars(starAmount){
 const dreams=document.querySelector('.dreams');
 function showContent(){
     dreams.style.display='inline';
+    clearInterval(randomStars);
    setTimeout( ()=>{dreams.style.opacity='1';},20)
     showing_content=true;
 }
@@ -71,36 +73,66 @@ let floatin= new IntersectionObserver(
         entry=>{
             if(entry.isIntersecting){
                 entry.target.style.animation='2s floatin forwards';
-                console.log('earthaaa');
             }
         }
         )
 }
 
 );
+let sectionObserver= new IntersectionObserver(
+    (entries,observer)=>{
+        entries.forEach(
+            entry=>{
+                if(entry.isIntersecting){
+                    sectionSwitch(entry.target.id);
+                }
+            }
+
+        );
+    }
+  
+);
+document.querySelectorAll('.sectionLandmark').forEach(ele=>{sectionObserver.observe(ele)});
 document.querySelectorAll('.setFloatin').forEach(ele=>{floatin.observe(ele);});
 document.querySelectorAll('.setUnblur').forEach(ele=>{unblur.observe(ele);});
 
-const transitionMarks={proportion:[0.3,0.6],content:['white','black']};
-window.onscroll=e=>{
-scrollProportion=Math.floor(10*window.scrollY/window.screen.height)/10;
-for(let i=0;i<transitionMarks.proportion.length;i++){
-    if(scrollProportion==transitionMarks.proportion[i]){
-        backgroundChange(transitionMarks.content[i]);
+function sectionSwitch(id){//dreams is the parent background element
+    switch (id){
+        case '1':
+            setBG('white');
+            break;
+        case '2':
+            setBG('black');
+            break;
+        case '3':
+            setBG('url(sky.jpg)');
+            break;
+        case '4':
+            setBG('#a8d5ba');
+            break;
+        case '5':
+            setBG('black');
+
+
     }
 }
-};
-
-
-function backgroundChange(content){
-    dreams.style.background=content;   
+const dreamsBG=document.querySelector('.dreamsBG');
+function setBG(BG){
+    if(BG.includes('url')){
+        dreamsBG.style.opacity='0';
+        dreamsBG.style.opacity='1';
+        dreamsBG.style.background=BG;
+    }
+    else{
+    dreams.style.background=BG;
+    dreamsBG.style.opacity='0';
 }
 
-function generateShootingStars(amount=10){
+}
+
+function generateShootingStars(amount=20){
     for(let i=0;i<amount;i++){
         document.querySelector('.space').appendChild(document.createElement('span'));
     }
 }
 generateShootingStars();
-
-
