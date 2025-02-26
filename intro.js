@@ -72,8 +72,10 @@ let floatin= new IntersectionObserver(
     entries.forEach(
         entry=>{
             if(entry.isIntersecting){
-                entry.target.style.animation='2s floatin forwards';
+                entry.target.classList.add('floatin');
             }
+            else
+            entry.target.classList.remove('floatin');
         }
         )
 }
@@ -111,7 +113,11 @@ function sectionSwitch(id){//dreams is the parent background element
             setBG('#a8d5ba');
             break;
         case '5':
-            setBG('black');
+            setBG('#F96167');
+            break;
+        case '6':
+            setBG('white');
+            break;
 
 
     }
@@ -136,3 +142,25 @@ function generateShootingStars(amount=20){
     }
 }
 generateShootingStars();
+
+let iframe=document.querySelector('.previewProject');
+function previewProject(show,e){//true or false
+if(show){
+iframe.src=e.target.href;
+iframe.style.display='block';
+setTimeout(
+    ()=>{
+iframe.style.opacity='1';
+    },20
+);
+}
+else{
+    iframe.src='';
+    iframe.style.opacity='0'
+    setTimeout(
+        ()=>{
+    iframe.style.display='none';
+        },250
+    );
+}
+}

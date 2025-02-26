@@ -93,7 +93,7 @@ body>*{
     opacity:0;
     pointer-events: none;
 }
-.setUnblur{
+.first-text{
     font-size:5vmax;
     width:100vw;
     text-align: center;
@@ -101,6 +101,9 @@ body>*{
     position:absolute;
     left:50vw;
     transform:translate(-50%,0);
+}
+.setUnblur{
+ 
     filter:blur(100px);
     -webkit-filter:blur(100px);
 }
@@ -247,8 +250,32 @@ body>*{
     height:30vw;
 }
 .dev-text{
-    font-size:4vmax;
+    font-size:3vmax;
     margin-top:30vh;
-    text-align: center;
+    margin-left:5vw;
+    text-align: left;
     color:white;
 }
+.projects a{
+    color:cyan;
+    height:10vh;
+}
+.previewProject{
+    width:40vw;
+    height:40vh;
+    background:white;
+    margin-left:50vw;
+    margin-top:-40vh;
+    transition:0.25s;
+    display:none;
+    opacity:0;
+ 
+}
+.last-text{
+    text-align: center;
+    margin-left:2.5vw;
+    font-size:3.5vmax;
+    color:black;
+    margin-top:50vh;
+}
+
