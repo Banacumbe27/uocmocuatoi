@@ -27,7 +27,7 @@ window.onmousemove=e=>{
 const starAmount=10;
 const star_timeout=500;
 const appear_delay=star_timeout/starAmount;
-const randomStars=setInterval(
+let randomStars=setInterval(
 ()=>{
     generateStars(starAmount);
 },star_timeout
@@ -55,6 +55,17 @@ function showContent(){
    setTimeout( ()=>{dreams.style.opacity='1';},20)
     showing_content=true;
 }
+function hideContent(){
+    setTimeout( ()=>{    dreams.style.display='none';    },1000)
+    dreams.style.opacity='0';
+    showing_content=false;
+    randomStars=setInterval(
+        ()=>{
+            generateStars(starAmount);
+        },star_timeout
+        );
+}
+
 
 let unblur=new IntersectionObserver(
 (entries,observer)=>{
